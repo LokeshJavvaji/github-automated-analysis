@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitHub Repository Fetcher</title>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            color: #333333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #4285f4;
+        }
+        
+        form {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            font-weight: bold;
+            color: #555555;
+        }
+        
+        input[type="text"] {
+            padding: 8px;
+            width: 300px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+        
+        button[type="submit"] {
+            padding: 8px 16px;
+            background-color: #4285f4;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #3367d6;
+        }
+        
+        h2 {
+            color: #555555;
+            margin-top: 20px;
+        }
+        
+        p {
+            margin: 5px 0;
+            color: #777777;
+        }
+    </style>
+</head>
+<body>
+    <h1>GitHub Repository Fetcher</h1>
+    {% if error %}
+    <p style="color: #dc3545;">{{ error }}</p>
+    {% else %}
+    <form method="POST" action="/">
+        <label for="user_url">GitHub User URL:</label>
+        <input type="text" id="user_url" name="user_url">
+        <button type="submit">Fetch Repositories</button>
+    </form>
+    <h2>Most Complex Repository:</h2>
+    <p>{{ most_complex_repo }}</p>
+    <h2>Complexity Score:</h2>
+    <p>{{ complexity_score }}</p>
+    {% endif %}
+</body>
+</html>
